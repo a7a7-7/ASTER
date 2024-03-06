@@ -1,8 +1,10 @@
 # ASTER
-DDos tool for server security
+DDos tool for server security.
+
+Currently, ASTER supports this.
+SYN flooding, 
 
 **Supports window but only works in WSL**
-If you run it in bare Windows, It will not work because raw socket of Winsock2 has a limitation to prevent DDoS of IP spoofing
-so you should run it in WSL also not work in Linux
+When running on Bare Windows, this will not work as raw sockets in Winsock2 have limitations to prevent IP spoofing and DDoS.
 
-ASTER will support Linux too.
+ASTER will support Linux afterward.
