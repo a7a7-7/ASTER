@@ -1,5 +1,5 @@
 # ASTER
-DDos tool for server security.
+Server DDos testing tool that is written in C++.
 
 Currently, ASTER supports these DDoS methods.
 
