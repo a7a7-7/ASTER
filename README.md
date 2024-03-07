@@ -3,7 +3,7 @@ Server DDos testing tool that is written in C++.
 
 Currently, ASTER supports these DDoS methods.
 
-SYN flooding, 
+SYN flooding
 
 ASTER is compiled with **makefile, g++**
 
