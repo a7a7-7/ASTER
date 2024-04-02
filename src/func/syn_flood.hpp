@@ -1,69 +1,32 @@
+#include<string>
+#include<cstring>
+#include<iostream>
+#include<netinet/tcp.h>
+#include<netinet/ip.h>
+#include<linux/in.h>
+#include<arpa/inet.h>
+#include<random>
+
 /*
-    IP header
+    syn_flooding.hpp
 
-    contains header length, version, service type, packet length, etc..
-    main purpose is IP spoofing
-
-    structure follows ip header form
-    -> https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/IPv4_Packet-en.svg/1920px-IPv4_Packet-en.svg.png
-    : (number) means bit field
-    : 4 means 4 bit
+    contains SYN flooding function
 */
-struct ipHeader
+
+// pseudo header for checksum calculation
+struct pseudo_header
 {
-    // version, length
-    unsigned char version : 4,
-        length : 4;
-    // Type of service
-    unsigned char tos;
-    unsigned short int total_length;
-    unsigned short int id;
-    unsigned short int frag_flags : 3,
-        offset : 13;
-    // Time to Live
-    unsigned char ttl;
+    unsigned int src_addr;
+    unsigned int dest_addr;
+    unsigned char placeholder;
     unsigned char protocol;
-    
-    struct in_addr sourceIP;
-    struct in_addr destIP;
+    unsigned short tcp_length; 
+
+    struct tcphdr tcp;
 };
 
-/*
-    TCP header
-
-    contains lot of things
-    -> https://upload.wikimedia.org/wikipedia/commons/4/4e/TCP_Protocol_Diagram.png
-*/
-struct tcpheader
-{
-    unsigned short sourcePort;
-    unsigned short destPort;
-    unsigned int sequence;
-    unsigned int ack;
-    #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-        unsigned int reserved:4,
-            offset:4;
-    #endif
-    #if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-        unsigned int offset:4,
-            reserved:4;
-    #endif
-
-    unsigned char flags;
-
-    #define TH_FIN 0x01
-    #define TH_SYN 0x02
-    #define TH_RST 0x04
-    #define TH_PUSH 0x08
-    #define TH_ACK 0x10
-    #define TH_URG 0x20
-    #define TH_ECE 0x40
-    #define TH_CWR 0x80
-    #define TH_FLAGS (TH_FIN|TH_SYN|TH_RST|TH_ACK|TH_URG|TH_ECE|TH_CWR)
-
-    unsigned short window;
-    unsigned short checksum;
-    unsigned short urgentPointer;
-};
-
-https://github.com/adamalston/SYN-Flood/blob/master/tcp_syn_flood.c
+// checksum calculation
+unsigned short chksum(unsigned short *ptr, int nbytes);
+int* ip_parser(std::string ip);
+int syn_flood(int sock, char dest_ip[], char src_ip[], int dport, int sport);
+int syn_flood(int sock, std::string dest_ip, std::string src_range1, std::string src_range2, int port);
