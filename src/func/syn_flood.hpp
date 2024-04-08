@@ -7,6 +7,8 @@
 #include<arpa/inet.h>
 #include<random>
 
+using namespace std;
+
 /*
     syn_flooding.hpp
 

@@ -1,4 +1,3 @@
-#Visual studio code
 .vscode
-#Build folder
 build
+*.out
