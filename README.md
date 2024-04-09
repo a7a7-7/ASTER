@@ -44,7 +44,10 @@
         // Also port can be specified like this (Default is 80)
         aster 192.168.1.1 -p 25565
     ```
-    
+* ### ASTER Wiki
+    For advanced usage of ASTER:
+    **[ASTER wiki](https://github.com/a7a7-7/ASTER/wiki)**
+  
 ---
 ### Legal notice
 > This software is provided for **educational use or for security test only**. a7a7-7(author) will not be held **responsible** for any **illegal activity** by user. By using this software, user **agree to these terms**.
