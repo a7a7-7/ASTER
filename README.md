@@ -5,8 +5,8 @@
 ---
 
 * ### Feature
-    * **SYN flooding**
-    * **LAND attack**
+    * `**SYN flooding**`
+    * `**LAND attack**`
 
 * ### Build
     ASTER is compiled with **makefile, g++**.
