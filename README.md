@@ -53,6 +53,6 @@
 > This software is provided for **educational use or for security test only**. a7a7-7(author) will not be held **responsible** for any **illegal activity** by user. By using this software, user **agree to these terms**.
 
 ### License
-This software is licensed under the [MIT License](/LICENSE)
+This software is licensed under the **[MIT License](/LICENSE)**
 
 ###### ASTER will not support **Windows** afterward because raw TCP socket of Winsock2 has **limitations** to prevent IP spoofing and DoS attack.
