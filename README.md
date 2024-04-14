@@ -45,7 +45,7 @@
         aster 192.168.1.1 -p 25565
     ```
 * ### ASTER Wiki
-    For advanced usage of ASTER:
+    For advanced usage or technical details of ASTER:
     **[ASTER wiki](https://github.com/a7a7-7/ASTER/wiki)**
   
 ---
